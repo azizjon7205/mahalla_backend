@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kriteriyalar",
+  "info": {
+    "singularName": "kriteriya",
+    "pluralName": "kriteriyalar",
+    "displayName": "Kriteriya",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "xodim": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::xodim.xodim",
+      "inversedBy": "kriteriyalar"
+    },
+    "fuqaro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fuqaro.fuqaro",
+      "inversedBy": "kriteriyalar"
+    }
+  }
+}
