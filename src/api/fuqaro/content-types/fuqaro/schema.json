@@ -15,12 +15,6 @@
     "fullname": {
       "type": "string"
     },
-    "kriteriyalar": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kriteriya.kriteriya",
-      "mappedBy": "fuqaro"
-    },
     "mahalla": {
       "type": "relation",
       "relation": "oneToOne",
@@ -37,6 +31,12 @@
     },
     "information": {
       "type": "text"
+    },
+    "kriteriyalar": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::kriteriya.kriteriya",
+      "mappedBy": "fuqarolar"
     }
   }
 }

@@ -22,9 +22,9 @@
       "target": "api::xodim.xodim",
       "inversedBy": "kriteriyalar"
     },
-    "fuqaro": {
+    "fuqarolar": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::fuqaro.fuqaro",
       "inversedBy": "kriteriyalar"
     }
