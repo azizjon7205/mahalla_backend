@@ -24,24 +24,32 @@ module.exports = {
             }
           );
 
-        entries.array.forEach(async element => {
-            if(element.phone_number == phone_number && element.password == password){
+          const updatePromises = entries.map(async element => {
+            if (element.phone_number == phone_number && element.password == password) {
                 const entry = await strapi.entityService.update('api::xodim.xodim', element.id, {
                     data: {
-                      fcm_token: fcm_token,
+                        fcm_token: fcm_token,
                     },
-                  });
-                return {
-                    success: true,
-                    message: 'Login successful.',
-                  };
+                });
+                return true;
             }
+            return false;
         });
-  
-        return {
-            success: false,
-            message: 'Invalid credentials.',
-          };
+        
+        const updateResults = await Promise.all(updatePromises);
+        const loginSuccessful = updateResults.includes(true);
+        
+        if (loginSuccessful) {
+            return {
+                success: true,
+                message: 'Login successful.',
+            };
+        } else {
+            return {
+                success: false,
+                message: 'Invalid credentials.',
+            };
+        }
 
       } catch (err) {
         return {
