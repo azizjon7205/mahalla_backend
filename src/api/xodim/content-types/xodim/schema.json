@@ -136,6 +136,15 @@
       "relation": "oneToMany",
       "target": "api::kriteriya.kriteriya",
       "mappedBy": "xodim"
+    },
+    "password": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "password",
+      "default": "xodim1234"
     }
   }
 }
