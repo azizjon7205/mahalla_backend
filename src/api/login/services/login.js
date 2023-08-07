@@ -13,9 +13,9 @@ module.exports = {
             "api::xodim.xodim",
             {
               fields: ["id", "name", "phone_number", "password", "fcm_token"],
-              filtees: {
-                phone_number: 990362606,
-                password: 123
+              filters: {
+                phone_number: phone_number,
+                password: password
               }
             }
           );
