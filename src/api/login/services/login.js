@@ -12,7 +12,7 @@ module.exports = {
         const entries = await strapi.entityService.findMany(
             "api::xodim.xodim",
             {
-              fields: ["id", "name", "phone_number", "password", "fcm_token"],
+              fields: ["id", "name", "phone_number", "password", "fcm_token", "role"],
               filters: {
                 phone_number: phone_number,
                 password: password

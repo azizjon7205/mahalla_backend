@@ -143,8 +143,10 @@
           "localized": false
         }
       },
-      "type": "password",
-      "default": "xodim1234"
+      "type": "string",
+      "default": "xodim1234",
+      "private": true,
+      "minLength": 2
     }
   }
 }
