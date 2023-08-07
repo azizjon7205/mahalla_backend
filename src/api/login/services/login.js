@@ -13,43 +13,59 @@ module.exports = {
             "api::xodim.xodim",
             {
               fields: ["id", "name", "phone_number", "password", "fcm_token"],
-              //populate: {
-              //  author: {
-              //    fields: ["name", "email"],
-              //  },
-              //  category: {
-              //    fields: ["name"],
-              //  },
-              //},
+              filtees: {
+                phone_number: 990362606,
+                password: 123
+              }
             }
           );
 
-          const updatePromises = entries.map(async element => {
-            if (element.phone_number == phone_number && element.password == password) {
-                const entry = await strapi.entityService.update('api::xodim.xodim', element.id, {
-                    data: {
-                        fcm_token: fcm_token,
-                    },
-                });
-                return true;
-            }
-            return false;
-        });
-        
-        const updateResults = await Promise.all(updatePromises);
-        const loginSuccessful = updateResults.includes(true);
-        
-        if (loginSuccessful) {
+          if (entries.length > 0) {
+            const firstEntry = entries[0];
+            // Do something with the first entry.
+            const entry = await strapi.entityService.update('api::xodim.xodim', firstEntry.id, {
+              data: {
+                  fcm_token: fcm_token,
+              },
+            });
             return {
-                success: true,
-                message: 'Login successful.',
+              success: true,
+              message: 'Login successful.',
             };
-        } else {
+          } else {
+            // The entries array is empty.
             return {
-                success: false,
-                message: 'Invalid credentials.',
+              success: false,
+              message: 'Invalid credentials.',
             };
-        }
+          }
+
+        //   const updatePromises = entries.map(async element => {
+        //     if (element.phone_number == phone_number && element.password == password) {
+        //         const entry = await strapi.entityService.update('api::xodim.xodim', element.id, {
+        //             data: {
+        //                 fcm_token: fcm_token,
+        //             },
+        //         });
+        //         return true;
+        //     }
+        //     return false;
+        // });
+        
+        // const updateResults = await Promise.all(updatePromises);
+        // const loginSuccessful = updateResults.includes(true);
+        
+        // if (loginSuccessful) {
+        //     return {
+        //         success: true,
+        //         message: 'Login successful.',
+        //     };
+        // } else {
+        //     return {
+        //         success: false,
+        //         message: 'Invalid credentials.',
+        //     };
+        // }
 
       } catch (err) {
         return {
