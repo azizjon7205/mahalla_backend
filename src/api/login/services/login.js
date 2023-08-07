@@ -16,6 +16,11 @@ module.exports = {
               filters: {
                 phone_number: phone_number,
                 password: password
+              },
+              populate: {
+                mahalla: {
+                  fields: ["id"]
+                }
               }
             }
           );
@@ -30,6 +35,10 @@ module.exports = {
             });
             return {
               success: true,
+              data: {
+                mahalla_id: firstEntry.mahalla.id,
+                role: firstEntry.role
+              },
               message: 'Login successful.',
             };
           } else {
