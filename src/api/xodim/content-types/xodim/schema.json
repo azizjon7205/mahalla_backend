@@ -131,12 +131,6 @@
       },
       "type": "string"
     },
-    "kriteriyalar": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kriteriya.kriteriya",
-      "mappedBy": "xodim"
-    },
     "password": {
       "pluginOptions": {
         "i18n": {
@@ -147,6 +141,12 @@
       "default": "xodim1234",
       "private": true,
       "minLength": 2
+    },
+    "kriteriyalar": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::kriteriya.kriteriya",
+      "mappedBy": "xodimlar"
     }
   }
 }

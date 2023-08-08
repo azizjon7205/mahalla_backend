@@ -16,9 +16,9 @@
       "type": "string",
       "required": true
     },
-    "xodim": {
+    "xodimlar": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::xodim.xodim",
       "inversedBy": "kriteriyalar"
     },

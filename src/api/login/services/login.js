@@ -36,6 +36,7 @@ module.exports = {
             return {
               success: true,
               data: {
+                id: firstEntry.id,
                 mahalla_id: firstEntry.mahalla.id,
                 role: firstEntry.role
               },
