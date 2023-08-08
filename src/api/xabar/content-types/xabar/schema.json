@@ -40,14 +40,11 @@
       },
       "type": "datetime"
     },
-    "mahalla_id": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "biginteger",
-      "min": "1"
+    "mahallalar": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mahalla.mahalla",
+      "mappedBy": "xabar"
     }
   }
 }

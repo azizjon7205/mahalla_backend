@@ -24,6 +24,12 @@
       "relation": "oneToMany",
       "target": "api::xodim.xodim",
       "mappedBy": "mahalla"
+    },
+    "xabar": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::xabar.xabar",
+      "inversedBy": "mahallalar"
     }
   }
 }
