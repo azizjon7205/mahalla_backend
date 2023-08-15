@@ -33,16 +33,25 @@ module.exports = {
                   fcm_token: fcm_token,
               },
             });
-            const entry1 = await strapi.entityService.update('api::mahalla.mahalla', firstEntry.mahalla.id, {
-              data: {
-                fcm_token: fcm_token
-              }
-            })
+
+            if(firstEntry.role == "rais"){
+              const entry1 = await strapi.entityService.update('api::mahalla.mahalla', firstEntry.mahalla.id, {
+                data: {
+                  fcm_token: fcm_token
+                }
+              })
+            } 
+            
+            var mahallaId = 0
+            if(firstEntry.role != "hokim"){
+              mahallaId = firstEntry.mahalla.id
+            }
+
             return {
               success: true,
               data: {
                 id: firstEntry.id,
-                mahalla_id: firstEntry.mahalla.id,
+                mahalla_id: mahallaId,
                 role: firstEntry.role
               },
               message: 'Login successful.',
