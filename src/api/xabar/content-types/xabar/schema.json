@@ -42,9 +42,9 @@
     },
     "mahallalar": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::mahalla.mahalla",
-      "mappedBy": "xabar"
+      "mappedBy": "xabarlar"
     }
   }
 }
