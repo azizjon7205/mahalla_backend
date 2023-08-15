@@ -33,7 +33,7 @@ module.exports = {
                   fcm_token: fcm_token,
               },
             });
-            const entry1 = await strapi.entityService.update('api:mahalla.mahalla', firstEntry.mahalla.id, {
+            const entry1 = await strapi.entityService.update('api::mahalla.mahalla', firstEntry.mahalla.id, {
               data: {
                 fcm_token: fcm_token
               }
